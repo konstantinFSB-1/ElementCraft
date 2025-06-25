@@ -26,8 +26,8 @@ public class HotbarListener implements Listener {
     @EventHandler
     public void onSwapHands(PlayerSwapHandItemsEvent event) {
         Player player = event.getPlayer();
-        if (player.isSneaking()) { // Проверяем, что Shift зажат
-            event.setCancelled(true); // Отменяем стандартное поведение (переключение предметов)
+        if (player.isSneaking()) { 
+            event.setCancelled(true); 
             toggleHotbar(player);
         }
     }
@@ -37,7 +37,7 @@ public class HotbarListener implements Listener {
         ItemStack[] currentHotbar = getHotbarItems(player);
 
         if (!isSecondaryActive.getOrDefault(uuid, false)) {
-            // Переключаемся на второй хотбар
+            
             secondaryHotbars.put(uuid, currentHotbar);
             ItemStack[] savedHotbar = loadSecondaryHotbar(player);
 
@@ -50,7 +50,7 @@ public class HotbarListener implements Listener {
             isSecondaryActive.put(uuid, true);
             player.sendMessage("§aПереключено на второй хотбар");
         } else {
-            // Возвращаемся к основному хотбару
+            
             ItemStack[] secondaryHotbar = getHotbarItems(player);
             saveSecondaryHotbar(player, secondaryHotbar);
             setHotbarItems(player, secondaryHotbars.get(uuid));
