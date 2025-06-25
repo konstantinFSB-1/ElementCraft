@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="elementcraft:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/elementcraft_jar</output-path>
+    <root id="archive" name="elementcraft.jar">
+      <element id="module-output" name="elementcraft" />
+    </root>
+  </artifact>
+</component>
