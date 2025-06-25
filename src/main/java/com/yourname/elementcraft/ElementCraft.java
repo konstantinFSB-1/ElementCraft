@@ -7,13 +7,13 @@ import java.util.Objects;
 public class ElementCraft extends JavaPlugin {
     private static ElementCraft instance;
     private ObjectManager objectManager;
-    private DatabaseManager databaseManager; // Объявляем переменную
+    private DatabaseManager databaseManager; 
 
     @Override
     public void onEnable() {
         instance = this;
         objectManager = new ObjectManager(this);
-        databaseManager = new DatabaseManager(this); // Инициализируем
+        databaseManager = new DatabaseManager(this); 
 
         Objects.requireNonNull(getCommand("object")).setExecutor(new ObjectCommand(this));
         Objects.requireNonNull(getCommand("object")).setTabCompleter(new ObjectTabCompleter(this));
