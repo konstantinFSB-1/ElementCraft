@@ -23,18 +23,14 @@ public class WanderingTraderListener implements Listener {
 
         WanderingTrader trader = (WanderingTrader) event.getEntity();
 
-        // Проверяем, не добавляли ли уже эту сделку
         if (trader.getPersistentDataContainer().has(new NamespacedKey(ElementCraft.getInstance(), TRADE_KEY))) {
             return;
         }
 
-        // Создаем единственную сделку
         MerchantRecipe trade = createEnderPearlTrade();
 
-        // Устанавливаем только эту сделку (заменяем все существующие)
         trader.setRecipes(Collections.singletonList(trade));
 
-        // Помечаем, что сделка добавлена
         trader.getPersistentDataContainer().set(
                 new NamespacedKey(ElementCraft.getInstance(), TRADE_KEY),
                 PersistentDataType.BYTE, (byte) 1
@@ -47,11 +43,11 @@ public class WanderingTraderListener implements Listener {
 
         MerchantRecipe recipe = new MerchantRecipe(
                 pearl,
-                0,                  // Без ограничений использования
-                12,                 // Максимальное использование (12 - как у обычных сделок)
-                false,              // Не требует опыта
-                1,                  // Уровень 1
-                1.0f               // Множитель цены
+                0,                 
+                12,                
+                false,              
+                1,                  
+                1.0f               
         );
         recipe.addIngredient(gold);
 
